@@ -4,11 +4,10 @@ from Vision.Vision import Vision
 from time import sleep
 from Utils.CustomLogger import CustomLogger
 from Utils.Enums.Level import Level
+from Utils.ArgumentParserHelper import GetArgs
 
 def main():
-
-  output = "log.txt"
-  level = Level.DEBUG
+  output, level = GetArgs()
 
   elevator = Elevator(output, level)
   motor_controller = MotorController(output, level)
