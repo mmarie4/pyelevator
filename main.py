@@ -3,7 +3,6 @@ from Controllers.MotorController import MotorController
 from Vision.Vision import Vision
 from time import sleep
 from Utils.CustomLogger import CustomLogger
-from Utils.Enums.Level import Level
 from Utils.ArgumentParserHelper import GetArgs
 
 def main():
