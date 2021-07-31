@@ -3,6 +3,7 @@ from Controllers.MotorController import MotorController
 from Vision.Vision import Vision
 from time import sleep
 from Utils.CustomLogger import CustomLogger
+from Utils.Constants import *
 from Utils.ArgumentParserHelper import GetArgs
 
 def main():
@@ -19,9 +20,9 @@ def main():
       logger.debug("Vision detected movement last iteration")
       vision.update()
       if vision.moving:
-        logger.debug("Vision detected moving again... Do nothing")
+        logger.debug("Vision detected movement again... Do nothing.")
       else:
-        logger.debug("Vision found stable image. Activating controller")
+        logger.debug("Vision found no movement. Activating controller")
         elevator.update()
 
     else:
@@ -32,7 +33,7 @@ def main():
       else:
         logger.debug("Vision still detects no movement")
 
-    sleep(0.2)
+    sleep(DELAY_BETWEEN_CAPTURES)
 
 if __name__ == "__main__":
     main()

@@ -19,20 +19,20 @@ class Elevator:
   # --------- private functions --------------------------
 
   # Set state on DOWN
-  def _stop_down():
+  def _stop_down(self):
     self.l = CustomLogger("Elevator")
     self.state = State.DOWN
     self.l.info("Elevator stopping on down position...")
 
   # Set state on UP
-  def _stop_up():
+  def _stop_up(self):
     self.state = State.UP
     self.l.info("Elevator stopping on top position...")
 
   # ------------------------------------------------------
 
   # Set state on MOVING_DOWN or MOVING_UP based on current state
-  def move():
+  def move(self):
     if self.state == State.UP:
       self.state = State.MOVING_DOWN
       self.l.info("Elevator moving down...")
@@ -43,7 +43,7 @@ class Elevator:
       self.l.error("Incorrect action : tried to move", self.state, "moving state.")
 
   # Check if elevator needs to stop
-  def update():
+  def update(self):
     if self.state == State.MOVING_DOWN and position <= 0:
       self.state = State.DOWN
     if self.state == State.MOVING_UP and position >= limit:
