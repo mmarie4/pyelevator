@@ -12,13 +12,12 @@ class Vision:
     self.l = CustomLogger("Vision", output, level)
     self.moving = False
     self.camera = PiCamera()
-    self.l.info("Initialization of Vision")
     # Save raw capture to allow us to grab image from the stream and for perf : https://www.pyimagesearch.com/2015/03/30/accessing-the-raspberry-pi-camera-with-opencv-and-python/
     self.raw_capture = PiRGBArray(self.camera)
     self.last_image = self._capture_image()
     self.score_threshold = SSIM_THRESHOLD
-
     #self.camera.start_preview()
+    self.l.info("Vision initialized.")
 
   # --------- private functions --------------------------
 
@@ -48,4 +47,8 @@ class Vision:
     new_image = self._capture_image()
     self.moving = self._compare_images(new_image)
     self.last_image = new_image
-    cv2.imshow("Image", self.last_image)
+
+  # When elevator stops, get ready to detect movement again
+  def reset(self):
+    self.moving = False
+    self.last_image = self._capture_image()

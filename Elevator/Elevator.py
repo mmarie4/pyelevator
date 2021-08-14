@@ -1,5 +1,6 @@
-from .Enums.State import State
+from Utils.Enums.State import State
 from Utils.CustomLogger import CustomLogger
+from Utils.Constants import *
 
 class Elevator:
 
@@ -11,10 +12,9 @@ class Elevator:
   # Constructor
   def __init__(self, output, level):
     self.state = State.DOWN
-    self.limit = 10
-    self.position = 0
+    self.position = MIN_POSITION
     self.l = CustomLogger("Elevator", output, level)
-    self.l.info("Initialization of Elevator")
+    self.l.info("Elevator initialized.")
 
   # --------- private functions --------------------------
 
@@ -43,8 +43,12 @@ class Elevator:
       self.l.error("Incorrect action : tried to move", self.state, "moving state.")
 
   # Check if elevator needs to stop
-  def update(self):
-    if self.state == State.MOVING_DOWN and position <= 0:
+  def check(self):
+    if self.state == State.MOVING_DOWN and self.position <= MIN_POSITION:
       self.state = State.DOWN
-    if self.state == State.MOVING_UP and position >= limit:
+    if self.state == State.MOVING_UP and self.position >= MAX_POSITION:
       self.state = State.UP
+
+  # Check if elevator is still
+  def is_still(self):
+    return self.state == State.DOWN or self.state == State.UP 

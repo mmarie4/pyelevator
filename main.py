@@ -2,6 +2,7 @@ from Elevator.Elevator import Elevator
 from Controllers.MotorController import MotorController
 from Vision.Vision import Vision
 from time import sleep
+from Utils.Enums.State import State
 from Utils.CustomLogger import CustomLogger
 from Utils.Constants import *
 from Utils.ArgumentParserHelper import GetArgs
@@ -14,26 +15,32 @@ def main():
   vision = Vision(output, level)
   logger = CustomLogger("Main", output, level)
 
-  while True:
+  try:
+    
+    while True:
 
-    if vision.moving:
-      logger.debug("Vision detected movement last iteration")
-      vision.update()
-      if vision.moving:
-        logger.debug("Vision detected movement again... Do nothing.")
+      if elevator.is_still():
+        vision.update()
+        if vision.moving:
+          logger.debug("Something changed... Moving the elevator.")
+          elevator.move()
+          motor_controller.update(elevator)
+        else:
+          logger.debug("Nothing changed. Stay still.")
+
       else:
-        logger.debug("Vision found no movement. Activating controller")
-        elevator.update()
+        elevator.check()
+        if elevator.is_still():
+          logger.debug("Elevator stopped moving")
+          vision.reset()
+        else:
+          logger.debug("Elevator keep moving")
+          motor_controller.update(elevator)
 
-    else:
-      logger.debug("Vision detected no movement last iteration")
-      vision.update()
-      if vision.moving:
-        logger.debug("Vision detected movement. Wait next iteration.")
-      else:
-        logger.debug("Vision still detects no movement")
+      sleep(DELAY_BETWEEN_CAPTURES)
 
-    sleep(DELAY_BETWEEN_CAPTURES)
+  except KeyboardInterrupt:
+    motor_controller.cleanup()
 
 if __name__ == "__main__":
     main()
