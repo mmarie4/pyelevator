@@ -20,7 +20,6 @@ class Elevator:
 
   # Set state on DOWN
   def _stop_down(self):
-    self.l = CustomLogger("Elevator")
     self.state = State.DOWN
     self.l.info("Elevator stopping on down position...")
 
