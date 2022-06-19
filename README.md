@@ -40,3 +40,7 @@ Here is the details about each pin of the raspberry pi 4 that I am using: https:
 - [Image differences with openCV and python](https://www.pyimagesearch.com/2017/06/19/image-difference-with-opencv-and-python/)
 - [Raspberry Pi Servo control](https://techatronic.com/raspberry-pi-servo-control/)
 - [Controlling a servomotor with a Raspberry Pi Tuorial](https://embeddedcircuits.com/raspberry-pi/tutorial/controlling-a-servo-motor-with-raspberry-pi-tutorial)
+
+
+https://user-images.githubusercontent.com/26919635/174477463-fd3b28fb-5bc0-449c-9163-21654d5d4edc.mp4
+
