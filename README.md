@@ -1,5 +1,6 @@
 ## pyelevator
 Python script for Rabpberry Pi to command elevator based on computer vision
+The goal is to place the elevator on top of a hamster cage. A camera records the platform and activate the motor to lift the platform. When the elevator is on top, it stays in this position until the hamster leaves the platform, then the elevator goes down.
 
 
 ## Code Architecture
@@ -16,7 +17,7 @@ Other tools and helpers
 ## Setup
 - **Picamera** : no need to install any library but the camera must be enabled : type `sudo raspi-config` , go to the 3rd option **Interface option** and enable camera, then reboot
 - Install scikit-image : `pip3 install --upgrade scikit-image` (need numpy >= 1.16.5)
-- In casethe import of scikit-image causes an error : `sudo apt install libatlas-base-dev`
+- In case the import of scikit-image causes an error : `sudo apt install libatlas-base-dev`
 - Install opencv : `pip3 install python-opencv`
 - Make sure GPIO is installed : `pip3 install RPi.GPIO`
 
@@ -33,6 +34,7 @@ I am using a SG90 servomotor, that requires 5V alimentation and use PWM signals.
 - Black/brown cable on the ground
 
 My servomotor has his wires attached together so I bought a bunch of jumper wires to connect to the relevant pins on the Pi
+
 Here is the details about each pin of the raspberry pi 4 that I am using: https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmiro.medium.com%2Fmax%2F4128%2F0*VsaGvGskvJa20hZa.png&f=1&nofb=1
 
 #### References
