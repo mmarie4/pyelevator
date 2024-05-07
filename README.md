@@ -38,7 +38,7 @@ I am using a SG90 servomotor, that requires 5V alimentation and use PWM signals.
 My servomotor has his wires attached together so I bought a bunch of jumper wires to connect to the relevant pins on the Pi
 
 Here is the details about each pin of the raspberry pi 4 that I am using: 
-![GitHub Image](/images/raspberry-pins.png)
+![GitHub Image](/raspberry-pins.png)
 
 
 #### References
