@@ -47,6 +47,10 @@ Here is the details about each pin of the raspberry pi 4 that I am using:
 - [Raspberry Pi Servo control](https://techatronic.com/raspberry-pi-servo-control/)
 - [Controlling a servomotor with a Raspberry Pi Tuorial](https://embeddedcircuits.com/raspberry-pi/tutorial/controlling-a-servo-motor-with-raspberry-pi-tutorial)
 
+# Result
+When anything on the camera changes (hamster climbed on the platform), the servotor rotates on 180° then stay still (platform go up and stay on top).
+
+When something changed again (hamster left the platform), the platform rotates 180° in the opposite way (going back to ground floor).
 
 https://user-images.githubusercontent.com/26919635/174477463-fd3b28fb-5bc0-449c-9163-21654d5d4edc.mp4
 
