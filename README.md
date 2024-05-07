@@ -26,7 +26,9 @@ Other tools and helpers
 Need to transform the rotation movement of the motor to a translation movement. Could have done it with a rack and pinion, but I figured the easiest way would be to use a wheel and a string, especially because I want to place the raspberry Pi on top of the hamster cage that avoid taking too much space inside.
 Then the platform will needs movement constraints on the rotations and on the translations horizontally, to allow only vertical movements. We will need to add a basis and 4 pillars to guide the platform. At the end, the elevator will work like this :
 
-We can calculate the radius of the wheel depending on the amplitude we want for our platform. I am using a servomotor that can rotate on 180°, which means the maximum amplitude of the elevator corresponds to half the perimeter or the wheel attached to the servomotor : $$ \frac{2*\pi*R}{2} = h \Rightarrow R = \frac{h}{\pi} $$
+We can calculate the radius of the wheel depending on the amplitude we want for our platform. I am using a servomotor that can rotate on 180°, which means the maximum amplitude of the elevator corresponds to half the perimeter or the wheel attached to the servomotor :
+
+$$ \frac{2*\pi*R}{2} = h \Rightarrow R = \frac{h}{\pi} $$
 
 I am using a SG90 servomotor, that requires 5V alimentation and use PWM signals. Plug it as followed:
 - Yellow cable on a GPIO pin that uses PWM signal
