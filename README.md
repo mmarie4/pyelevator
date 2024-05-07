@@ -2,6 +2,12 @@
 Python script for Rabpberry Pi to command elevator based on computer vision
 The goal is to place the elevator on top of a hamster cage. A camera records the platform and activate the motor to lift the platform. When the elevator is on top, it stays in this position until the hamster leaves the platform, then the elevator goes down.
 
+# Result
+When anything on the camera changes (hamster climbed on the platform), the servotor rotates on 180° then stay still (platform go up and stay on top).
+
+When something changed again (hamster left the platform), the platform rotates 180° in the opposite way (going back to ground floor).
+
+https://user-images.githubusercontent.com/26919635/174477463-fd3b28fb-5bc0-449c-9163-21654d5d4edc.mp4
 
 ## Code Architecture
 
@@ -46,11 +52,4 @@ Here is the details about each pin of the raspberry pi 4 that I am using:
 - [Image differences with openCV and python](https://www.pyimagesearch.com/2017/06/19/image-difference-with-opencv-and-python/)
 - [Raspberry Pi Servo control](https://techatronic.com/raspberry-pi-servo-control/)
 - [Controlling a servomotor with a Raspberry Pi Tuorial](https://embeddedcircuits.com/raspberry-pi/tutorial/controlling-a-servo-motor-with-raspberry-pi-tutorial)
-
-# Result
-When anything on the camera changes (hamster climbed on the platform), the servotor rotates on 180° then stay still (platform go up and stay on top).
-
-When something changed again (hamster left the platform), the platform rotates 180° in the opposite way (going back to ground floor).
-
-https://user-images.githubusercontent.com/26919635/174477463-fd3b28fb-5bc0-449c-9163-21654d5d4edc.mp4
 
