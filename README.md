@@ -1,8 +1,8 @@
-## pyelevator
+# PyElevator
 Python script for Rabpberry Pi to command elevator based on computer vision
 The goal is to place the elevator on top of a hamster cage. A camera records the platform and activate the motor to lift the platform. When the elevator is on top, it stays in this position until the hamster leaves the platform, then the elevator goes down.
 
-# Result
+## Result
 When anything on the camera changes (hamster climbed on the platform), the servotor rotates on 180° then stay still (platform go up and stay on top).
 
 When something changed again (hamster left the platform), the platform rotates 180° in the opposite way (going back to ground floor).
